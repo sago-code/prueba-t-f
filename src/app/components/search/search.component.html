@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="titleB">
+        <h2>BÚSQUEDA DE CLIENTE</h2>
+    </div>
+    
+    <form class="search-form">
+        <div class="form-group">
+        <label for="tipoDocumento">Tipo de Documento:</label>
+        <select 
+            id="tipoDocumento" 
+            [(ngModel)]="tipoDocumento" 
+            name="tipoDocumento" 
+            class="form-select form-select-lg">
+            <option value="">Seleccione un tipo</option>
+            <option value="C">Cédula de ciudadanía</option>
+            <option value="P">Pasaporte</option>
+        </select>
+        </div>
+
+        <div class="form-group">
+        <label for="numeroDocumento">Número de Documento:</label>
+        <input 
+            type="text" 
+            id="numeroDocumento" 
+            [(ngModel)]="numeroDocumento" 
+            name="numeroDocumento"
+            class="form-control form-control-lg"
+            pattern="[0-9]*"
+            minlength="8"
+            maxlength="11"
+            placeholder="Ingrese el número de documento">
+        </div>
+
+        <button 
+        [disabled]="!esFormularioValido()"
+        (click)="buscarCliente()"
+        type="button" class="btn btn-primary">
+        Buscar
+        </button>
+    </form>
+</div>
